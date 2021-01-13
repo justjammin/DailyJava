@@ -1,3 +1,4 @@
+#MENU = {
 MENU = {
     "espresso": {
         "ingredients": {
@@ -24,6 +25,7 @@ MENU = {
     }
 }
 
+
 profit = 0
 resources = {
     "water": 300,
@@ -31,6 +33,7 @@ resources = {
     "coffee": 100,
 }
 
+is_on = True
 
 def is_resource_sufficient(order_ingredients):
     """Returns True when order can be made, False if ingredients are insufficient."""
@@ -43,7 +46,8 @@ def is_resource_sufficient(order_ingredients):
 
 def process_coins():
     """Returns the total calculated from coins inserted."""
-    print("Please insert coins.")
+    print("Please insert coins, ") 
+    print("your " + choice + " costs " + str(MENU[choice]['cost']) + " dollars")  
     total = int(input("how many quarters?: ")) * 0.25
     total += int(input("how many dimes?: ")) * 0.1
     total += int(input("how many nickles?: ")) * 0.05
@@ -70,9 +74,6 @@ def make_coffee(drink_name, order_ingredients):
         resources[item] -= order_ingredients[item]
     print(f"Here is your {drink_name} ☕️. Enjoy!")
 
-
-is_on = True
-
 while is_on:
     choice = input("​What would you like? (espresso/latte/cappuccino): ")
     if choice == "off":
@@ -88,3 +89,13 @@ while is_on:
             payment = process_coins()
             if is_transaction_successful(payment, drink["cost"]):
                 make_coffee(choice, drink["ingredients"])
+
+
+
+
+
+
+
+
+
+
